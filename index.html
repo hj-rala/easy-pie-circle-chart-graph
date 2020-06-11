@@ -1,0 +1,16 @@
+<span class="chartPie" data-percent="55.1">
+  <span class="percent"></span>
+</span>
+
+
+
+$('.chartPie').easyPieChart({
+	easing: 'easeOutBounce',
+	onStep: function(from, to, percent) {
+		$(this.el).find('.percent').text((percent).toFixed(1) + '%');
+	}
+});
+var chart = window.chart = $('.chartPie').data('easyPieChart');
+$('.js_update').on('click', function() {
+	chart.update(Math.random()*200-100);
+});
